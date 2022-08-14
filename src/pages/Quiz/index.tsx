@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import camelcaseKeys from "camelcase-keys";
 import { getQuizListApi } from "services/quiz";
-import { categoryState, difficultyState, quizItemList, totalScore } from "states/quiz";
+import { categoryState, difficultyState, totalScore } from "states/quiz";
+import { IQuizItem } from "types/quiz";
 import { getDifficulty, getCategory } from "./util";
 import useTimeCount from "hooks/useTimeCounter";
 
@@ -18,7 +19,7 @@ const Quiz = () => {
   const setTotalScore = useSetRecoilState(totalScore);
   const { countTime } = useTimeCount();
 
-  const [quizList, setQuizList] = useRecoilState(quizItemList);
+  const [quizList, setQuizList] = useState<IQuizItem[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoad] = useState<boolean>(true);
   const [questionNum, setQuestionNum] = useState<number>(0);
@@ -46,15 +47,15 @@ const Quiz = () => {
 
   const handleNextQuestion = () => {
     setQuestionNum((prev) => prev + 1);
+
+    if (questionNum + 1 > quizList.length) {
+      navigate("/result", { replace: false });
+    }
   };
 
   if (isLoading) return <div>Loading...</div>;
 
   if (isError) return <div>ERR...</div>;
-
-  if (questionNum + 1 > quizList.length) {
-    navigate("/result", { replace: true });
-  }
 
   return (
     <QuizPageLayout>
