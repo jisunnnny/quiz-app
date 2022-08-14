@@ -48,7 +48,7 @@ const Quiz = () => {
   const handleNextQuestion = () => {
     setQuestionNum((prev) => prev + 1);
 
-    if (questionNum + 1 > quizList.length) {
+    if (questionNum + 1 === quizList.length) {
       navigate("/result", { replace: false });
     }
   };
