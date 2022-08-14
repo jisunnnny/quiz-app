@@ -4,7 +4,7 @@ const Box = styled.ul`
   li {
     margin-left: 10px;
     font-weight: 400;
-    
+
     label {
       cursor: pointer;
     }
