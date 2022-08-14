@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+<div align='center'>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Quiz App
+### [배포 주소]()
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+|메인 화면|퀴즈 풀기|결과 화면|
+|:-:|:-:|:-:|
+|![메인 화면](https://user-images.githubusercontent.com/88502596/184556533-e3a93c8e-1c41-432c-a218-be1379bfb0eb.png)|![퀴즈 풀기](https://user-images.githubusercontent.com/88502596/184556537-a64d637d-72a1-4a68-92b9-b4a4f30d1759.png)|![결과 화면](https://user-images.githubusercontent.com/88502596/184556583-66f283db-e970-48b8-86ac-9f7ea6325de2.png)|
 
-### `yarn start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 기술 스택
+> React, TypeScript, Styled-Components, Recoil
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 프로젝트 실행 방법
 
-### `yarn build`
+1. yarn 설치
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+ npm i yarn
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. repository 클론
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+https://github.com/jisunnnny/quiz-app.git
+```
 
-### `yarn eject`
+3. dependencies 설치
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+yarn install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. 실행
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+yarn start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 구현 기능 목록
+- [x] 홈 화면
+  - [x] 퀴즈 주제 및 난이도 선택 기능 제공
+  - [x] 퀴즈 풀기 버튼 클릭 시 퀴즈 풀이 시작
+- [x] 퀴즈 풀기
+  - [x] 4개 보기 중 답안 선택 및 제출
+  - [x] 정답 유무 확인 및 답안 변경 가능
+  - [x] 다음 문항 버튼 시 다음 문항으로 이동
+- [x] 퀴즈 결과
+  - [x] 퀴즈 소요 시간 및 정답/오답 수 제공
+  - [x] 정답 오답 비율 차트 시각화
+  - [x] 다시 풀기 버튼 클릭시 동일한 주제 및 난이도 퀴즈 다시 풀기
