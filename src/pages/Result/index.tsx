@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useMount } from "react-use";
 
 import { useRecoilValue } from "recoil";
@@ -6,9 +7,10 @@ import { count, totalScore } from "states/quiz";
 import { VictoryPie } from "victory";
 import CustomSlice from "./CustomSlice";
 
-import { PieChart, PieChartText, ResultPageLayout, ResultTimeText } from "./result.style";
+import { PieChart, PieChartText, ResultPageLayout, ResultTimeText, QuizRetryButton } from "./result.style";
 
 const Result = () => {
+  const navigate = useNavigate();
   const score = useRecoilValue(totalScore);
   const time = useRecoilValue(count);
   const chartScore = Number(score.correct);
@@ -22,8 +24,13 @@ const Result = () => {
     setTimeout(dataUpdate, 1000);
   });
 
+  const handleRetryButtonClick = () => {
+    navigate("/quiz");
+  };
+
   return (
     <ResultPageLayout>
+      <h1>Your Score is...</h1>
       <PieChart>
         <VictoryPie
           data={data}
@@ -40,6 +47,9 @@ const Result = () => {
         </PieChartText>
       </PieChart>
       <ResultTimeText>Run-time: {time}sec</ResultTimeText>
+      <QuizRetryButton type="button" onClick={handleRetryButtonClick}>
+        Try again
+      </QuizRetryButton>
     </ResultPageLayout>
   );
 };

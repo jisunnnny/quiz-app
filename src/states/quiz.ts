@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { IQuizItem } from "types/quiz";
 
 interface IToTalScore {
   correct: number;
@@ -25,4 +26,9 @@ const count = atom<number>({
   default: 0,
 });
 
-export { difficultyState, categoryState, totalScore, count };
+const quizItemList = atom<IQuizItem[]>({
+  key: "#quizItemList",
+  default: [],
+});
+
+export { difficultyState, categoryState, totalScore, count, quizItemList };

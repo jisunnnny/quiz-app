@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import camelcaseKeys from "camelcase-keys";
 import { getQuizListApi } from "services/quiz";
-import { categoryState, difficultyState, totalScore } from "states/quiz";
-import { IQuizItem } from "types/quiz";
+import { categoryState, difficultyState, quizItemList, totalScore } from "states/quiz";
 import { getDifficulty, getCategory } from "./util";
 import useTimeCount from "hooks/useTimeCounter";
 
@@ -19,7 +18,7 @@ const Quiz = () => {
   const setTotalScore = useSetRecoilState(totalScore);
   const { countTime } = useTimeCount();
 
-  const [quizList, setQuizList] = useState<IQuizItem[]>([]);
+  const [quizList, setQuizList] = useRecoilState(quizItemList);
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoad] = useState<boolean>(true);
   const [questionNum, setQuestionNum] = useState<number>(0);
