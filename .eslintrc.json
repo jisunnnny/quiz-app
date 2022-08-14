@@ -26,6 +26,7 @@
     }
   },
   "rules": {
+    "camelcase": ["error"],
     "arrow-body-style": "off",
     "semi": ["warn", "always"],
     "consistent-return": "off",
@@ -106,5 +107,13 @@
         "tsx": "never"
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "camelcase": ["off"]
+      }
+    }
+  ]
 }
